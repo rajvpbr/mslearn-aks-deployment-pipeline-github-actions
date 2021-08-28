@@ -31,22 +31,13 @@ jobs:
         uses: Azure/setup-helm@v1
         with:
           version: v3.3.1
-
+          
       - name: Get AKS Credentials
         uses: Azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Resource Group Name
           resource-group: mslearn-gh-pipelines-490
-          cluster-name: ContosoContainerRegistry21402
-      - name: Run Helm Deploy
-        run: |
-          helm upgrade \
-            --install \
-            --create-namespace \
-            --atomic \
-            --wait \
-            --namespace staging \
-            contoso-website \
-            ./kubernetes/contoso-website \
-            --set image.repository=${{ secrets.ACR_NAME }} \
-            --set dns.name=${{ secrets.DNS_NAME }}
+          # AKS Cluster Name
+          cluster-name: contoso-video
+  
