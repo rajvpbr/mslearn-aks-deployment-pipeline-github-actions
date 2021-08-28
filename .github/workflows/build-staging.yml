@@ -37,7 +37,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           resource-group: mslearn-gh-pipelines-490
-          cluster-name: contoso-video
+          cluster-name: ContosoContainerRegistry21402
       - name: Run Helm Deploy
         run: |
           helm upgrade \
